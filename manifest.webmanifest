@@ -1,0 +1,16 @@
+{
+  "name": "Millizai Network",
+  "short_name": "Millizai",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0914",
+  "theme_color": "#100d20",
+  "description": "Play games and compete in monthly community prize competitions.",
+  "icons": [
+    {
+      "src": "assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
