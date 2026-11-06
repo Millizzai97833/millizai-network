@@ -157,11 +157,11 @@
   </div>
 </div>
 
-<!-- Service Worker Registration (New Zone) -->
+<!-- Service Worker Registration -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register('/millizai-network/sw.js')
         .then(function (registration) {
           console.log('Service Worker registered successfully');
         })
