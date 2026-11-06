@@ -1,10 +1,178 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100d20"><meta name="description" content="Millizai Network — play games and compete for monthly community prizes."><title>Millizai Network</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="styles.css"></head><body>
-<header><a class="brand" href="#">◈ <b>MILLIZAI <small>NETWORK</small></b></a><nav><a href="#games">Games</a><a href="#leaderboard">Leaderboard</a><a href="#rewards">Prizes</a><a href="#wallet">Wallet</a></nav><a class="pill" href="#games">Play now ↗</a></header>
-<main><section class="hero"><div><label>✦ COMMUNITY GAMING ARENA</label><h1>Play hard.<br><span>Climb higher.</span></h1><p>Play original mini-games, chase high scores and compete for monthly crypto prizes.</p><a class="button" href="#games">Explore games →</a> <a class="button ghost" href="#leaderboard">Leaderboard</a><div class="stats"><b>03 <small>ARCADE GAMES</small></b><b>TOP 10 <small>MONTHLY PRIZES</small></b><b>SHC <small>COMMUNITY COIN</small></b></div></div><div class="hero-coin"><div class="coin">M<small>SHC</small></div><aside>🏆 MONTHLY RANK<br><b>TOP 10</b></aside></div></section>
-<section id="games"><label>THE ARCADE</label><h2>Choose your <span>challenge.</span></h2><p class="muted">Three quick games. One leaderboard. How high can you score?</p><div class="cards"><article><div class="art bird">🐦 🎯</div><label>PHYSICS PUZZLE</label><h3>Bird Launcher</h3><p>Drag back and launch your bird at the targets.</p><button data-game="bird">Play game →</button></article><article><div class="art snake">🟢 🟢 🟢</div><label>ARCADE CLASSIC</label><h3>Neon Snake</h3><p>Collect food, grow longer and avoid crashing.</p><button data-game="snake">Play game →</button></article><article><div class="art fruit">🍉 🍊 🍓</div><label>REFLEX CHALLENGE</label><h3>Fruit Slice</h3><p>Tap flying fruit. Avoid the bombs.</p><button data-game="fruit">Play game →</button></article></div><p class="note">Prototype scores are stored on this device only. They are not verified competition entries.</p></section>
-<section id="leaderboard" class="shade"><label>THE RANKINGS</label><h2>Chase the <span>top 10.</span></h2><div class="panel"><div class="bar">MONTHLY LEADERBOARD <span id="month"></span></div><div class="row head"><span>RANK</span><span>PLAYER</span><span>SCORE</span></div><div id="rows"></div></div><p class="note">Sample entries plus your local device score. A real global leaderboard needs a secure backend.</p></section>
-<section id="rewards" class="rewards"><div><label>MONTHLY COMMUNITY REWARDS</label><h2>Top players.<br><span>Real recognition.</span></h2><p>Each month, the top 10 eligible players may receive crypto prizes from a separately funded prize pool. Dates, eligibility, prize amounts and verification rules must be announced before each competition.</p><div class="chips"><b>Ð DOGE</b><b>◎ SOL</b></div><p class="note">Prizes are not guaranteed until a funded competition is officially announced. Ads do not affect scores or prizes.</p></div><div class="prize">🏆<h2>TOP 10</h2><p>Monthly arcade challenge</p><hr><b>Prize pool announced monthly</b></div></section>
-<section id="wallet" class="shade wallet"><div><label>YOUR PAYOUT DETAILS</label><h2>Crypto <span>wallet.</span></h2><p class="muted">Planned minimum payout request thresholds:</p><div class="minimum"><b>Ð DOGE <strong>1 DOGE</strong></b><b>◎ SOL <strong>0.002 SOL</strong></b></div><p class="note">This demo does not connect to a blockchain or send payments.</p></div><form id="walletForm"><h3>Wallet settings <small>DEMO MODE</small></h3><label>Coin</label><select id="coin"><option>DOGE</option><option>SOL</option></select><label>Public receiving address</label><input id="address" required minlength="20" placeholder="Paste public wallet address"><button class="button">Save address</button><p id="walletMsg" class="note">Never enter your seed phrase or private key.</p></form></section>
-<section class="about"><div class="mark">M</div><div><label>BUILT FOR THE COMMUNITY</label><h2>Welcome to <span>Millizai Network.</span></h2><p>Created by Shahab Millizai. Play fair, respect the rules and enjoy the challenge.</p></div></section></main>
-<footer><b>MILLIZAI NETWORK <small>Created by Shahab Millizai</small></b><span><a href="privacy.html">Privacy</a> · <a href="rules.html">Competition rules</a> · <a href="contact.html">Contact</a></span></footer>
-<div id="modal" class="modal hidden"><div class="dialog"><button id="close" class="close">×</button><label>ARCADE GAME</label><h2 id="gameTitle">Game</h2><p>Score: <b id="score">0</b> <span id="hint"></span></p><div id="stage"></div><div class="actions"><button id="start">Start / Restart</button></div><p class="note">Local demo only. Scores are not verified and do not qualify for real prizes.</p></div></div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#100d20">
+  <meta name="description" content="Millizai Network — play games and compete for monthly community prizes.">
+  <title>Millizai Network</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#">◈ <b>MILLIZAI <small>NETWORK</small></b></a>
+  <nav>
+    <a href="#games">Games</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#rewards">Prizes</a>
+    <a href="#wallet">Wallet</a>
+  </nav>
+  <a class="pill" href="#games">Play now ↗</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <label>✦ COMMUNITY GAMING ARENA</label>
+      <h1>Play hard.<br><span>Climb higher.</span></h1>
+      <p>Play original mini-games, chase high scores and compete for monthly crypto prizes.</p>
+      <a class="button" href="#games">Explore games →</a>
+      <a class="button ghost" href="#leaderboard">Leaderboard</a>
+      <div class="stats">
+        <b>03 <small>ARCADE GAMES</small></b>
+        <b>TOP 10 <small>MONTHLY PRIZES</small></b>
+        <b>SHC <small>COMMUNITY COIN</small></b>
+      </div>
+    </div>
+    <div class="hero-coin">
+      <div class="coin">M<small>SHC</small></div>
+      <aside>🏆 MONTHLY RANK<br><b>TOP 10</b></aside>
+    </div>
+  </section>
+
+  <section id="games">
+    <label>THE ARCADE</label>
+    <h2>Choose your <span>challenge.</span></h2>
+    <p class="muted">Three quick games. One leaderboard. How high can you score?</p>
+    <div class="cards">
+      <article>
+        <div class="art bird">🐦 🎯</div>
+        <label>PHYSICS PUZZLE</label>
+        <h3>Bird Launcher</h3>
+        <p>Drag back and launch your bird at the targets.</p>
+        <button data-game="bird">Play game →</button>
+      </article>
+      <article>
+        <div class="art snake">🟢 🟢 🟢</div>
+        <label>ARCADE CLASSIC</label>
+        <h3>Neon Snake</h3>
+        <p>Collect food, grow longer and avoid crashing.</p>
+        <button data-game="snake">Play game →</button>
+      </article>
+      <article>
+        <div class="art fruit">🍉 🍊 🍓</div>
+        <label>REFLEX CHALLENGE</label>
+        <h3>Fruit Slice</h3>
+        <p>Tap flying fruit. Avoid the bombs.</p>
+        <button data-game="fruit">Play game →</button>
+      </article>
+    </div>
+    <p class="note">Prototype scores are stored on this device only. They are not verified competition entries.</p>
+  </section>
+
+  <section id="leaderboard" class="shade">
+    <label>THE RANKINGS</label>
+    <h2>Chase the <span>top 10.</span></h2>
+    <div class="panel">
+      <div class="bar">MONTHLY LEADERBOARD <span id="month"></span></div>
+      <div class="row head"><span>RANK</span><span>PLAYER</span><span>SCORE</span></div>
+      <div id="rows"></div>
+    </div>
+    <p class="note">Sample entries plus your local device score. A real global leaderboard needs a secure backend.</p>
+  </section>
+
+  <section id="rewards" class="rewards">
+    <div>
+      <label>MONTHLY COMMUNITY REWARDS</label>
+      <h2>Top players.<br><span>Real recognition.</span></h2>
+      <p>Each month, the top 10 eligible players may receive crypto prizes from a separately funded prize pool. Dates, eligibility, prize amounts and verification rules must be announced before each competition.</p>
+      <div class="chips"><b>Ð DOGE</b><b>◎ SOL</b></div>
+      <p class="note">Prizes are not guaranteed until a funded competition is officially announced. Ads do not affect scores or prizes.</p>
+    </div>
+    <div class="prize">
+      🏆
+      <h2>TOP 10</h2>
+      <p>Monthly arcade challenge</p>
+      <hr>
+      <b>Prize pool announced monthly</b>
+    </div>
+  </section>
+
+  <section id="wallet" class="shade wallet">
+    <div>
+      <label>YOUR PAYOUT DETAILS</label>
+      <h2>Crypto <span>wallet.</span></h2>
+      <p class="muted">Planned minimum payout request thresholds:</p>
+      <div class="minimum">
+        <b>Ð DOGE <strong>1 DOGE</strong></b>
+        <b>◎ SOL <strong>0.002 SOL</strong></b>
+      </div>
+      <p class="note">This demo does not connect to a blockchain or send payments.</p>
+    </div>
+    <form id="walletForm">
+      <h3>Wallet settings <small>DEMO MODE</small></h3>
+      <label>Coin</label>
+      <select id="coin">
+        <option>DOGE</option>
+        <option>SOL</option>
+      </select>
+      <label>Public receiving address</label>
+      <input id="address" required minlength="20" placeholder="Paste public wallet address">
+      <button class="button">Save address</button>
+      <p id="walletMsg" class="note">Never enter your seed phrase or private key.</p>
+    </form>
+  </section>
+
+  <section class="about">
+    <div class="mark">M</div>
+    <div>
+      <label>BUILT FOR THE COMMUNITY</label>
+      <h2>Welcome to <span>Millizai Network.</span></h2>
+      <p>Created by Shahab Millizai. Play fair, respect the rules and enjoy the challenge.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>MILLIZAI NETWORK <small>Created by Shahab Millizai</small></b>
+  <span>
+    <a href="privacy.html">Privacy</a> · 
+    <a href="rules.html">Competition rules</a> · 
+    <a href="contact.html">Contact</a>
+  </span>
+</footer>
+
+<div id="modal" class="modal hidden">
+  <div class="dialog">
+    <button id="close" class="close">×</button>
+    <label>ARCADE GAME</label>
+    <h2 id="gameTitle">Game</h2>
+    <p>Score: <b id="score">0</b> <span id="hint"></span></p>
+    <div id="stage"></div>
+    <div class="actions"><button id="start">Start / Restart</button></div>
+    <p class="note">Local demo only. Scores are not verified and do not qualify for real prizes.</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+<!-- Service Worker for Ads -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function (registration) {
+          console.log('Service Worker registered successfully');
+        })
+        .catch(function (error) {
+          console.log('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+
+</body>
+</html>
