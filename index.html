@@ -9,6 +9,32 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/logo.svg">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Advertising scripts supplied by the site owner.
+       Note: the duplicate zone 12207020 has been included only once. -->
+  <script>
+    (function(s) {
+      s.dataset.zone = '12207020';
+      s.src = 'https://al5sm.com/tag.min.js';
+    })(document.head.appendChild(document.createElement('script')));
+  </script>
+
+  <script src="https://5gvci.com/act/files/tag.min.js?z=12207022"
+          data-cfasync="false" async></script>
+
+  <script>
+    (function(s) {
+      s.dataset.zone = '12207028';
+      s.src = 'https://nap5k.com/tag.min.js';
+    })(document.head.appendChild(document.createElement('script')));
+  </script>
+
+  <script>
+    (function(s) {
+      s.dataset.zone = '12207030';
+      s.src = 'https://n6wxm.com/vignette.min.js';
+    })(document.head.appendChild(document.createElement('script')));
+  </script>
 </head>
 <body>
 
@@ -139,8 +165,8 @@
 <footer>
   <b>MILLIZAI NETWORK <small>Created by Shahab Millizai</small></b>
   <span>
-    <a href="privacy.html">Privacy</a> · 
-    <a href="rules.html">Competition rules</a> · 
+    <a href="privacy.html">Privacy</a> ·
+    <a href="rules.html">Competition rules</a> ·
     <a href="contact.html">Contact</a>
   </span>
 </footer>
@@ -159,12 +185,13 @@
 
 <script src="app.js"></script>
 
-<!-- Service Worker Registration -->
+<!-- Existing service-worker registration.
+     This expects /millizai-network/sw.js to exist on your website. -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('/millizai-network/sw.js')
-        .then(function (registration) {
+        .then(function () {
           console.log('Service Worker registered successfully');
         })
         .catch(function (error) {
